@@ -13,10 +13,6 @@ class ProfileController
         $api = new ApiClient();
         $response = $api->get('usuarios/', $token);
 
-        echo '<pre>';
-        print_r($response);
-        echo '</pre>';
-
         if ($response['estado'] === true) {
             $user = $response;
             require_once '../app/Views/auth/profile.php';

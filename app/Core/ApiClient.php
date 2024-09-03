@@ -4,7 +4,7 @@ namespace App\Core;
 
 class ApiClient
 {
-    public function post($endpoint, $data)
+    public function post($endpoint, $data, $token = null)
     {
         $url = API_BASE_URL . $endpoint;
 
@@ -13,7 +13,8 @@ class ApiClient
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Content-Type: application/json'
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $token
         ]);
 
         $response = curl_exec($ch);
@@ -34,7 +35,7 @@ class ApiClient
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Authorization: Token $token'
+            'Authorization: Token ' . $token
         ]);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);

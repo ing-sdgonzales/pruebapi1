@@ -20,7 +20,9 @@ class AuthController{
 
             if ($response['tipo'] === true) { 
                 $_SESSION['token'] = $response['token'];
-                $_SESSION['usuario'] = $response['usuario'];
+                $_SESSION['usuario'] = [
+                    'url' => $response['url']
+                ];
 
                 header('Location: /test/public/dashboard');
                 exit();
@@ -77,6 +79,7 @@ class AuthController{
 
         require_once '../app/Views/auth/dashboard.php';
     }
+    
 
     public function logout(){
         session_start();

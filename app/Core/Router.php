@@ -28,6 +28,10 @@ class Router
                 $controller = new \App\Controllers\ProfileController();
                 $controller->showProfile();
                 break;
+            case 'uploadcv':
+                $controller = new \App\Controllers\CvController();
+                $controller->saveCV();
+                break;
             case 'logout':
                 $controller = new \App\Controllers\AuthController();
                 $controller->logout();

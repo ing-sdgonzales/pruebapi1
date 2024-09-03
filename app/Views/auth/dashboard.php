@@ -16,7 +16,7 @@
         </div>
         <div class="mt-3">
             <h3>Cargar CV</h3>
-            <form action="/test/public/upload-cv" method="POST" enctype="multipart/form-data">
+            <form action="/test/public/uploadcv" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="cv" class="form-label">Selecciona tu CV (PDF, máximo 5MB):</label>
                     <input type="file" class="form-control" id="cv" name="cv" accept=".pdf" required>
